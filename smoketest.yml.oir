@@ -38,7 +38,7 @@
       uri:
         url: "http://frontend1.{{ GUID }}.example.opentlc.com"
         return_content: yes
-      until: '"Welcome to Apache" in result.content'
+      until: '"Welcome to Tomcat" in result.content'
       retries: 10
       delay: 1
       register: result

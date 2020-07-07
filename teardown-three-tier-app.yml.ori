@@ -43,24 +43,24 @@
   gather_facts: false
   become: true
   vars:
-    httpd_packages:
-      - httpd
-    httpd_port: 80    
-    httpd_service: httpd
+    tomcat_packages:
+      - tomcat
+    tomcat_port: 8080    
+    tomcat_service: tomcat
 
   tags:
     - app_servers
 
   tasks:
 
-    - name: Remove Apache package(s)
+    - name: Remove Tomcat package(s)
       package:
-        name: "{{ httpd_packages }}"
+        name: "{{ tomcat_packages }}"
         state: absent
 
-    - name: Create Apache content directory
+    - name: Create Tomcat content directory
       file:
-        path: /var/www/html
+        path: /usr/share/tomcat
         state: absent
 
 
